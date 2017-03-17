@@ -48,5 +48,8 @@ Route::get('kelas_b/framework/{mhs?}', function ($anonim){
 	Route::get('ruangan','ruanganController@awal');
 	Route::get('ruangan/tambah','ruanganController@tambah');
 
+	Route::get('matakuliah','matakuliahController@awal');
+	Route::get('matakuliah/tambah','matakuliahController@tambah');
+
 
 

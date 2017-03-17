@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\mahasiswa;
 
-class mahasiswacontroller.php extends Controller
+class mahasiswaController extends Controller
 {
     //
      public function awal()
