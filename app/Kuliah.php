@@ -8,4 +8,6 @@ class Kuliah extends Model
 {
  	protected $table = 'mahasiswa'
  	protected $fillable = ['nama','nim','alamat','pengguna'];
+
+ 	
 }

@@ -10,4 +10,16 @@ class jadwal_matakuliah extends Model
         protected $table = 'jadwal_matakuliah';
     protected $fillable = ['mahasiswa_id','ruangan_id','dosen_matakuliah_id'];
 
+
+    public function mahasiswa(){
+    	return $this->BelongsTo(mahasiswa::class);
+   }
+   public function ruangan(){
+
+   	return $this->BelongsTo(ruangan::class);
+   }
+   public function dosen_matakuliah(){
+   	return $this->BelongsTo(dosen_matakuliah::class);
+   }
+
 }

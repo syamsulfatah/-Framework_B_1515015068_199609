@@ -10,10 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('mahasiswa_pengguna','mahasiswaController@mahasiswa');
+Route::get('mahasiswa_pengguna/semua','mahasiswaController@semua_mahasiswa');
+Route::get('mahasiswa/jadwal/ruangan','jadwal_mahasiswaController@jadwal_kulmhs');
+
+
 
 Route::get('pengguna', 'PenggunaController@awal');
 Route::get('pengguna/tambah', 'PenggunaController@tambah');
@@ -25,6 +29,10 @@ Route::get('pengguna/hapus/{pengguna}','PenggunaController@hapus');
 
 Route::get('Dosen', 'DosenController@awal');
 Route::get('Dosen/tambah', 'DosenController@tambah');
+Route::get('Dosen/semua', 'dosen_matakuliahController@semua_dosen');
+Route::get('Dosen/semua_matkul', 'dosen_matakuliahController@semua_matkul');
+Route::get('Dosen/keterangan', 'DosenController@ket_dosen');
+
 Route::get('Mahasiswa', 'MahasiswaController@awal');
 Route::get('Mahasiswa/tambah', 'MahasiswaController@tambah');
 
@@ -49,4 +57,5 @@ Route::get('Dosen_matakuliah/tambah', 'Dosen_matakuliahController@tambah');
 
 Route::get('Jadwal_matakuliah', 'Jadwal_matakuliahController@awal');
 Route::get('Jadwal_matakuliah/tambah', 'Jadwal_matakuliahController@tambah');
+
 
