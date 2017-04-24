@@ -10,15 +10,48 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+  //  return view('welcome');
+//});
+//Route::get('/',function()
+//{
+//	return \App\dosen_matakuliah::whereHas('dosen',function($query)
+//	{
+//		$query->where('nama','like','%u%');
+//	})-> with('dosen')->groupBy('dosen_id')->get();
+//});
 
-Route::get('hello-world', function () {
-    return "Hello-world";
-});
+//Route::get('/', function (Illuminate\Http\Request $request) {
+//    echo "ini adalah request dari method get ". $request->nama;
+// });
 
-Route::get('mahasiswa_pengguna','MahasiswaController@mahasiswa');
+// Route::get('/', function () {
+//     echo Form::open(['url'=>'/']).
+//       Form::label('nama').
+//       Form::text('nama',null).
+//     Form::submit('kirim').
+//     Form::close();
+// });
+// Route::post('/',function (Request $request)
+// {
+//  echo "Hasil dari Form input tadi nama : ".$request->nama;
+// });
+
+
+//Route::get('/',function()
+//{
+//  return \App\dosen_matakuliah::whereHas('dosen',function($query)
+//  {
+//    $query->where('nama','like','%h%');
+//  })
+//  ->orWhereHas('matakuliah',function($kueri)
+//  {
+//    $kueri->where('title','like','%o%');
+//  })
+//  ->with('dosen','matakuliah')
+//  ->groupBy('dosen_id')
+//  ->get();
+// });
 
 
 // Route::get('pengguna/{pengguna}', function ($pengguna) {
@@ -28,6 +61,29 @@ Route::get('mahasiswa_pengguna','MahasiswaController@mahasiswa');
 // Route::get('kelas_b/framework/{mhs?}', function ($mhs="Anonim") {
     // return "Selamat datang $mhs";
 //});
+
+
+use Illuminate\Http\Request;
+
+Route::get('/login','SesiController@form');
+Route::post('/login','SesiController@validasi');
+Route::get('/logout','SesiController@logout');
+Route::get('/','SesiController@index');
+Route::group(['middleware'=>'AutentifikasiUser'],function())
+{
+
+
+
+
+Route::get('hello-world', function () {
+    return "Hello-world";
+});
+
+Route::get('mahasiswa_pengguna','MahasiswaController@mahasiswa');
+
+Route::get('ujiHas','RelationshipRebornController@ujiHas');
+Route::get('ujiDoesntHave','RelationshipRebornController@ujiDoesntHave');
+
 
 Route::get('pengguna','PenggunaController@awal');
 Route::get('pengguna/tambah','PenggunaController@tambah');
@@ -84,3 +140,4 @@ Route::get('jadwal_matakuliah/{jadwal_matakuliah}', 'Jadwal_matakuliahController
 Route::get('jadwal_matakuliah/edit/{jadwal_matakuliah}', 'Jadwal_matakuliahController@edit');
 Route::post('jadwal_matakuliah/edit/{jadwal_matakuliah}', 'Jadwal_matakuliahController@update');
 Route::get('jadwal_matakuliah/hapus/{jadwal_matakuliah}', 'Jadwal_matakuliahController@hapus');
+});

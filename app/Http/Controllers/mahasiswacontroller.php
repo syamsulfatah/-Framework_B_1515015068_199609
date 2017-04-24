@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\mahasiswa;
 use App\Pengguna;
 
+use App\Http\Requests\mahasiswarequest;
+
 class mahasiswaController extends Controller
 {
 
@@ -57,7 +59,7 @@ class mahasiswaController extends Controller
     }
 
     
-    public function simpan(Request $input)
+    public function simpan(mahasiswaRequest $input)
     {
 
     $pengguna = new Pengguna($input->only('username','password'));
@@ -87,7 +89,7 @@ class mahasiswaController extends Controller
     }
 
 
-   public function update($id, Request $input)
+   public function update($id, mahasiswaRequest $input)
     {
 
     $mahasiswa = Mahasiswa::find($id);
